@@ -10,17 +10,17 @@
 //     })
 
 
-// fetch("https://jsonplaceholder.typicode.com/photos")
-//     .then((res) => res.json())
-//     .then((data) => {
-//         // Generate HTML for each albumId and URL
-//         const content = data.map(photo => 
-//             `<p>Album ID: ${photo.albumId}, URL: <a href="${photo.url}" target="_blank">${photo.url}</a> , THUMBNAIL :  ${photo.thumbnailUrl}</p>`
-//         ).join("***********************************");
+fetch("https://jsonplaceholder.typicode.com/photos")
+    .then((res) => res.json())
+    .then((data) => {
+        // Generate HTML for each albumId and URL
+        const content = data.map(photo => 
+            `<p>Album ID: ${photo.albumId}, URL: <a href="${photo.url}" target="_blank">${photo.url}</a> , THUMBNAIL :  ${photo.thumbnailUrl}</p>`
+        ).join("***********************************");
 
-//         // Set the generated HTML to the element with ID 'data'
-//         document.getElementById("data").innerHTML = content;
-//     })
+        // Set the generated HTML to the element with ID 'data'
+        document.getElementById("data").innerHTML = content;
+    })
 
 
     // card
@@ -70,20 +70,20 @@
 
 
 
-const data = {
-    title: "This is Title",
-    body: "This is body post",
-    userId: 5
-}
+// const data = {
+//     title: "This is Title",
+//     body: "This is body post",
+//     userId: 5
+// }
 
-fetch("https://jsonplaceholder.typicode.com/posts" ,{
+// fetch("https://jsonplaceholder.typicode.com/posts" ,{
    
-    method: "GET",
-    body: JSON.stringify(data),
-    headers : {
-        "Content-type": "application/json"
-    }
-}).then(res => res.json()).then(data => document.getElementById("data").innerHTML=data.title)
+//     method: "GET",
+//     body: JSON.stringify(data),
+//     headers : {
+//         "Content-type": "application/json"
+//     }
+// }).then(res => res.json()).then(data => document.getElementById("data").innerHTML=data.title)
 
 
 
