@@ -15,7 +15,7 @@ fetch("https://jsonplaceholder.typicode.com/photos")
     .then((data) => {
         // Generate HTML for each albumId and URL
         const content = data.map(photo => 
-            `<p>Album ID: ${photo.albumId}, URL: <a href="${photo.url}" target="_blank">${photo.url}</a> , THUMBNAIL :  ${photo.thumbnailUrl}</p>`
+            `<p>Album ID: ${ph1oto.albumId}, URL: <a href="${photo.url}" target="_blank">${photo.url}</a> , THUMBNAIL :  ${photo.thumbnailUrl}</p>`
         ).join("***********************************");
 
         // Set the generated HTML to the element with ID 'data'
