@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Document</title>
+</head>
+
+<body>
+   <div id="d"></div>
+
+   <!-- String charcter count -->
+
+   <!-- <script>
+      let str = "hhh  jjjj kkkkk";
+      const d = document.getElementById('d');
+      let obj = {};
+
+      // Loop through each character in the string
+      for (let x of str) {
+         if (obj[x]) {
+            obj[x]++;
+         } else {
+            obj[x] = 1;
+         }
+      }
+
+      // Display the character counts in the div
+      for (let key in obj) {
+         d.innerHTML += `${key}: ${obj[key]}<br>`;
+      }
+   </script> -->
+
+   <!-- ============================================================ -->
+
+   <!-- space count -->
+
+   <!-- <script>
+      let str = "hhh jjjj kkkkk";
+      const d = document.getElementById('d');
+      let spaceCount = 0;
+
+      for (let char of str) {
+         if (char === ' ') {
+            spaceCount++;
+         }
+      }
+
+      d.innerHTML = `Space count: ${spaceCount}`;
+   </script> -->
+
+   <!-- ==================================================================== -->
+
+   <!-- ✅ 1. Reverse a string -->
+
+   <!-- <script>
+      let str = "hello Rahul";
+      let reversed = str.split("").reverse().join("");
+      console.log(reversed); // "olleh"
+    </script> -->
+
+   <!-- ================================================================== -->
+
+   <!-- ✅ 2. Check if string is palindrome   <----|-----|->  a word, phrase, name, or number that reads the same forward or backward (e.g., noon, 1001).  -->
+   <!-- <script>
+      let str = "madam";
+      let isPalindrome = str === str.split("").reverse().join("");
+      console.log(isPalindrome); // true
+    </script> -->
+
+   <!-- ========================================================================= -->
+
+   <!-- ✅ 3. Count vowels in a string -->
+
+   <!-- <script>
+      let str = "hello world";
+      let count = str.match(/[aeiou]/gi)?.length || 0;
+      console.log(count); // 3
+    </script> -->
+
+   <!-- ================================================================================== -->
+
+   <!-- ✅ 4. Count occurrences of each character -->
+
+   <!-- <script>
+      let str = "aabbbc";
+      let obj = {};
+      for (let char of str) {
+        obj[char] = (obj[char] || 0) + 1;
+      }
+      console.log(obj); // { a: 2, b: 3, c: 1 }
+    </script> -->
+
+   <!-- ================================================================================== -->
+
+   <!-- ✅ 5. Find the first non-repeating character -->
+
+   <!-- <script>
+      let str = "aabbcde";
+      for (let char of str) {
+        if (str.indexOf(char) === str.lastIndexOf(char)) {
+          console.log(char); // c
+          break;
+        }
+      }
+    </script> -->
+
+   <!-- ===================================================================================== -->
+
+   <!-- ✅ 6. Find the all repeating characters from the string: -->
+
+   <!-- <script>
+      let str = "aabbcde";
+      let obj = {};
+      let repeatingChars = new Set();
+
+      // Count occurrences
+      for (let char of str) {
+        obj[char] = (obj[char] || 0) + 1;
+      }
+
+      // Find and print repeating characters
+      for (let char in obj) {
+        if (obj[char] > 1) {
+          repeatingChars.add(char);
+        }
+      }
+
+      console.log("Repeating characters:", [...repeatingChars].join(", "));
+      // Output: Repeating characters: a, b
+    </script> -->
+
+
+   <!-- ======================================================================== -->
+
+   <!--✅ 7. Find All Non-Repeating Characters: -->
+
+   <!-- <script>
+      let str = "aabbcdefggh";
+      let freq = {};
+
+      // Step 1: Count frequency of each character
+      for (let char of str) {
+         freq[char] = (freq[char] || 0) + 1;
+      }
+
+      // Step 2: Collect characters that appear only once
+      let nonRepeating = '';
+      for (let char of str) {
+         if (freq[char] === 1) {
+            nonRepeating += char;
+         }
+      }
+
+      console.log("Non-repeating characters:", nonRepeating);
+
+    //---------------------------------------------------------------------------------
+
+      ✅ Bonus (Without Object – Direct Approach Using Index):
+      let str = "aabbcde";
+      let repeating = new Set();
+      
+      for (let char of str) {
+      if (str.indexOf(char) !== str.lastIndexOf(char)) {
+      repeating.add(char);
+      }
+      }
+      
+      console.log("Repeating characters:", [...repeating].join(', '));
+      // Output: Repeating characters: a, b
+
+
+   </script> -->
+
+
+   <!-- ===================================================================== -->
+
+   <!-- ✅ 8. Check if two strings are anagrams -->
+
+   <!-- <script>
+      let str1 = "listen", str2 = "silent";
+      let isAnagram = str1.split('').sort().join('') === str2.split('').sort().join('');
+      console.log(isAnagram); // true
+   </script> -->
+
+
+   <!-- ================================================================================= -->
+
+   <!--✅ 9. Check if two strings are anagrams <===========> the word anagram itself can be rearranged into the phrase "nag a ram" , “cork” and “rock” -->
+
+   <!-- <script>
+      let str1 = "listen", str2 = "silent";
+      let isAnagram = str1.split('').sort().join('') === str2.split('').sort().join('');
+      console.log(isAnagram); // true
+
+   </script> -->
+
+
+   <!-- ========================================================================= -->
+
+   <!-- ✅ 10. Remove duplicate characters -->
+   <!-- <script>
+      let str = "aabbcc";
+      let unique = [...new Set(str)].join('');
+      console.log(unique); // "abc"
+
+   </script> -->
+
+
+   <!-- =============================================================================== -->
+
+
+   <!-- ✅ 11. Check if string contains only digits -->
+
+
+   <!-- <script>
+      let str = "1234456";
+      let isDigits = /^\d+$/.test(str);
+      console.log(isDigits); // true
+   </script> -->
+
+
+
+   <!-- 🔍 Breakdown of /^\d+$/
+
+| Part    | Meaning                                        |
+| ------- | ---------------------------------------------- |
+| `/.../` | This defines a **regular expression (RegEx)**  |
+| `^`     | Start of the string                            |
+| `\d`    | A digit character (`0` to `9`)                 |
+| `+`     | One or more occurrences of the previous (`\d`) |
+| `$`     | End of the string                              | 
+
+✅ .test(str)
+This is a RegExp method that checks if str matches the pattern.
+
+Returns true or false.
+
+-->
+
+   <!-- second method -->
+
+   <!-- <script>
+      let str = "123456";
+      let isDigits = !isNaN(str) && !str.includes(" ");
+      console.log(isDigits); // true
+   </script> -->
+
+
+   <!-- third method -->
+
+
+   <!-- <script>
+      let str = "123456";
+      let isDigits = true;
+
+      for (let char of str) {
+         if (char < '0' || char > '9') {
+            isDigits = false;
+            break;
+         }
+      }
+
+      console.log(isDigits); // true
+
+   </script> -->
+
+
+   <!-- ====================================================================================== -->
+
+
+   <!-- ✅ 12. Count words in a string -->
+
+   <!-- <script>
+      let str = "I love JavaScript";
+      let trimmedStr = str.trim(); // remove leading/trailing spaces
+      let words = trimmedStr.split(' '); // split by single space
+
+      // Filter out empty strings caused by extra spaces
+      let wordCount = words.filter(word => word !== '').length;
+
+      console.log(wordCount); // 3
+   </script> -->
+
+
+   <!-- ================================================================================= -->
+
+   <!-- ✅ 13. Capitalize first letter of each word -->
+
+   <!-- <script>
+      let str = "hello world";
+      let words = str.split(" ");
+
+      let capitalizedWords = words.map(word => {
+         return word.charAt(0).toUpperCase() + word.slice(1);
+      });
+
+      let capitalized = capitalizedWords.join(" ");
+      console.log(capitalized); // "Hello World"
+   </script> -->
+
+
+
+   <!-- ================================================================================ -->
+
+
+   <!-- ✅ 14. Check if string starts with/ends with -->
+
+   <!-- <script>
+      let str = "hello world";
+      console.log(str.startsWith("hello")); // true
+      console.log(str.endsWith("world")); // true
+   </script> -->
+
+
+
+   <!-- second method -->
+
+   <!-- <script>
+      let str = "hello world";
+      let prefix = "hello"; // Same length as "hello", but different character at index 1
+
+      let isStarting = str.slice(0, prefix.length) === prefix;
+      console.log(isStarting); // false ✅
+
+   </script> -->
+
+
+
+   <!-- =============================================================================== -->
+
+
+   <!-- ✅ 15. Reverse each word in a string -->
+
+   <!-- 
+   <script>
+      let str = "hello world";
+      let result = str.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+      console.log(result); // "olleh dlrow"
+   </script> -->
+
+
+   <!-- =============================================================================== -->
+
+
+   <!-- ✅ 16. Check if two strings are rotations -->
+
+   <!-- first step -->
+
+   <!-- <script>
+      let s1 = "abcde", s2 = "deabc";
+      let isRotation = s1.length === s2.length && (s1 + s1).includes(s2);
+      console.log(isRotation); // true
+   </script> -->
+
+
+   <!-- second step  -->
+   <!-- <script>
+      let s1 = "abcde", s2 = "deabc";
+      let isRotation = false;
+
+      if (s1.length === s2.length) {
+         let combined = s1 + s1;
+
+         for (let i = 0; i < s1.length; i++) {
+            let rotated = combined.substring(i, i + s1.length);
+            console.log(`Rotation ${i + 1}: ${rotated}`);
+
+            if (rotated === s2) {
+               console.log(`✅ Match found at rotation ${i + 1}: "${rotated}" === "${s2}"`);
+               isRotation = true;
+               break;
+            }
+         }
+      }
+
+      console.log("\nFinal Result:", isRotation);
+   </script> -->
+
+
+
+   <!-- Third method -->
+
+   <!-- <script>
+      let s1 = "abcde";
+      let s2 = "deabc";
+      let isRotation = false;
+
+      console.log("Original Strings:");
+      console.log("s1 =", s1);
+      console.log("s2 =", s2);
+
+      // Step 1: Check if lengths are equal
+      if (s1.length === s2.length) {
+         console.log("✔ Lengths are equal. Proceeding to check rotations...\n");
+
+         // Try each rotation of s1
+         for (let i = 0; i < s1.length; i++) {
+            let rotated = "";
+
+            // Part 1: From index i to end
+            for (let j = i; j < s1.length; j++) {
+               rotated += s1[j];
+            }
+
+            // Part 2: From index 0 to i-1
+            for (let j = 0; j < i; j++) {
+               rotated += s1[j];
+            }
+
+            // Log the rotated version
+            console.log(`Rotation ${i + 1}:`, rotated);
+
+            // Compare with s2
+            if (rotated === s2) {
+               console.log(`✅ Match found at rotation ${i + 1}: "${rotated}" === "${s2}"`);
+               isRotation = true;
+               break;
+            }
+         }
+
+         if (!isRotation) {
+            console.log("\n❌ No matching rotation found.");
+         }
+
+      } else {
+         console.log("❌ Strings are of different lengths. Cannot be rotations.");
+      }
+
+      console.log("\nFinal Result:", isRotation);
+
+   </script> -->
+
+
+
+
+   <!-- ======================================================================== -->
+
+   <!-- ✅ 17. Remove all white spaces -->
+
+   <!-- <script>
+      let str = " h e l l o ";
+      let noSpaces = str.replace(/\s/g, '');
+      console.log(noSpaces); // "hello"
+   </script> -->
+
+   <!-- | Part        | Meaning                                                      |
+| ----------- | ------------------------------------------------------------ |
+| `replace()` | JavaScript string method to **replace** parts of string      |
+| `/\s/g`     | A **regular expression** (regex):                            |
+| `\s`        | Matches **any whitespace character** (space, tab, newline)   |
+| `g`         | **Global flag** – applies to **all matches**, not just first |
+| `''`        | Replaces the space with **nothing** (i.e., removes it)       |
+ -->
+
+   <!-- second step  -->
+
+   <!-- <script>
+      let str = " h e l l o ";
+      let noSpaces = "";
+
+      for (let char of str) {
+         if (char !== ' ') {
+            noSpaces += char;
+         }
+      }
+      console.log(noSpaces); // "hello"
+
+   </script> -->
+
+   <!-- ================================================================================ -->
+
+
+   <!-- ✅ 18. Replace all vowels with '*' -->
+   <!-- 
+   <script>
+      let str = "hello world";
+      let replaced = str.replace(/[aeiou]/gi, '*');
+      console.log(replaced); // h*ll* w*rld
+   </script> -->
+
+
+   <!-- second method  -->
+
+   <!-- <script>
+      let str = "hello world";
+      let vowels = "aeiouAEIOU";
+      let replaced = "";
+
+      for (let char of str) {
+         if (vowels.includes(char)) {
+            replaced += "*";
+         } else {
+            replaced += char;
+         }
+      }
+
+      console.log(replaced); // h*ll* w*rld
+
+   </script> -->
+
+   <!-- =========================================================================== -->
+
+   <!-- ✅ 19. Find the longest word in a sentence -->
+
+   <!-- <script>
+      let str = "Web development is amazing";
+      let longest = str.split(' ').reduce((a, b) => a.length > b.length ? a : b);
+      console.log(longest); // "development"
+   </script> -->
+
+   <!-- ✅ split() method string ko array mein convert kar deta hai, based on a separator (jaise space, comma, character, etc.). -->
+
+
+   <!-- 
+   ✅ Let's break this down step-by-step:
+🔹 str.split(' ')
+   Breaks the sentence into words based on spaces.
+
+   ["Web", "development", "is", "amazing"] 
+   -->
+
+   <!-- ================================================================================= -->
+
+
+
+   <!-- ✅ 20. Check if string is a valid email -->
+   <!-- <script>
+      let email = "test@example.com";
+      let isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      console.log(isValid); // true
+   </script> -->
+
+
+   <!--✅ .test() sirf Regular Expressions (RegEx) ke saath hi use hota hai. -->
+   <!--✅ .test() method ka use regex pattern ko kisi string par test karne ke liye hota hai. -->
+
+
+
+   <!-- ===================================================================================== -->
+
+
+   <!-- ✅ 21. Convert string to camelCase -->
+
+   <!-- <script>
+      let str = "hello world example";
+      let camelCase = str.replace(/(?:^\w|[A-Z]|\b\w)/g, (w, i) =>
+         i === 0 ? w.toLowerCase() : w.toUpperCase()).replace(/\s+/g, '');
+      console.log(camelCase); // "helloWorldExample"
+   </script> -->
+
+
+   <!-- second method  -->
+   <!-- <script>
+      let str = "hello world example";
+      let words = str.trim().split(" ");
+      let camelCase = "";
+
+      for (let i = 0; i < words.length; i++) {
+         let word = words[i];
+         if (i === 0) {
+            camelCase += word.toLowerCase(); // first word lowercase
+         } else {
+            camelCase += word[0].toUpperCase() + word.slice(1).toLowerCase(); // capitalize
+         }
+      }
+
+      console.log(camelCase); // helloWorldExample
+
+   </script> -->
+
+
+   <!-- ================================================================================= -->
+
+   <!-- ✅ 22. Count spaces in a string -->
+
+   <!-- <script>
+      let str = "how are you?";
+      let count = (str.match(/ /g) || []).length;
+      console.log(count); // 2
+   </script> -->
+
+
+   <!-- ========================================================================================== -->
+
+   <!-- ✅ 20. Check if string is a pangram (all alphabets)  <=======> a sentence containing every letter of the alphabet-->
+
+   <!-- <script>
+      let str = "The quick brown fox jumps over the lazy dog";
+      let isPangram = new Set(str.toLowerCase().match(/[a-z]/g)).size === 26;
+      console.log(isPangram); // true
+   </script> -->
+
+
+   <!-- =================================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

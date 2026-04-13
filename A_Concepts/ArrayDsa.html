@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Interview Questions</title>
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <!-- ✅ 1. Find the maximum element in an array -->
+    <script>
+        let arr1 = [1, 5, 3, 9, 2];
+        console.log("Max:", Math.max(...arr1));
+    </script>
+
+    <!-- second method   -->
+
+    <!-- <script>
+        let arr1 = [1, 5, 3, 9, 2];
+        let max = arr1[0]; // assume first value is max
+
+        for (let i = 1; i < arr1.length; i++) {
+            if (arr1[i] > max) {
+                max = arr1[i];
+            }
+        }
+
+        console.log("Max:", max); // Max: 9
+    </script> -->
+
+    <!-- ======================================================================================= -->
+
+    <!-- ✅ 2. Find the minimum element in an array -->
+    <script>
+        let arr2 = [7, 5, 8, 2, 9];
+        console.log("Min:", Math.min(...arr2));
+    </script>
+
+
+    <!-- ========================================================================================== -->
+
+    <!-- ✅ 3. Find the sum of all elements -->
+
+    <script>
+        let arr3 = [4, 5, 6];
+        console.log("Sum:", arr3.reduce((a, b) => a + b, 0));
+    </script>
+
+    <!-- second method  -->
+
+    <!-- <script>
+        let arr3 = [4, 5, 6];
+        let sum = 0;
+
+        for (let i = 0; i < arr3.length; i++) {
+            sum += arr3[i];
+        }
+
+        console.log("Sum:", sum); // Sum: 15
+    </script> -->
+
+    <!-- ================================================================================= -->
+
+    <!-- ✅ 4. Check if an element exists in an array -->
+    <script>
+        let arr4 = [10, 20, 30];
+        console.log("Contains 20:", arr4.includes(20));
+    </script>
+
+    <!-- <script>
+        let arr4 = [10, 20, 30];
+        let target = 20;
+        let found = false;
+
+        for (let i = 0; i < arr4.length; i++) {
+            if (arr4[i] === target) {
+                found = true;
+                break;
+            }
+        }
+
+        console.log("Contains 20:", found); // true
+    </script> -->
+
+
+
+    <!-- ========================================================================================== -->
+
+
+    <!-- ✅ 5. Remove duplicates from an array -->
+    <script>
+        let arr5 = [1, 2, 2, 3, 4, 4];
+        console.log("Unique:", [...new Set(arr5)]);
+    </script>
+
+    <!-- <script>
+        let arr5 = [1, 2, 2, 3, 4, 4];
+        let unique = [];
+
+        for (let i = 0; i < arr5.length; i++) {
+            if (!unique.includes(arr5[i])) {
+                unique.push(arr5[i]);
+            }
+        }
+
+        console.log("Unique:", unique); // [1, 2, 3, 4]
+    </script> -->
+
+
+    <!-- ============================================================================= -->
+
+
+    <!-- ✅ 6. Reverse an array -->
+    <script>
+        let arr6 = [1, 2, 3, 4];
+        console.log("Reversed:", [...arr6].reverse());
+    </script>
+
+
+    <!-- <script>
+        let arr6 = [1, 2, 3, 4];
+        let reversed = [];
+
+        for (let i = arr6.length - 1; i >= 0; i--) {
+            reversed.push(arr6[i]);
+        }
+
+        console.log("Reversed:", reversed); // [4, 3, 2, 1]
+    </script> -->
+
+
+    <!-- ================================================================================== -->
+
+
+    <!-- ✅ 7. Sort ascending & descending -->
+    <script>
+        let arr7 = [3, 1, 4, 2];
+        console.log("Ascending:", [...arr7].sort((a, b) => a - b));
+        console.log("Descending:", [...arr7].sort((a, b) => b - a));
+    </script>
+
+
+    <!-- <script>
+        let arr7 = [3, 1, 4, 2];
+
+        // Ascending sort
+        let ascending = [...arr7]; // copy original array
+        for (let i = 0; i < ascending.length - 1; i++) {
+            for (let j = 0; j < ascending.length - 1 - i; j++) {
+                if (ascending[j] > ascending[j + 1]) {
+                    let temp = ascending[j];
+                    ascending[j] = ascending[j + 1];
+                    ascending[j + 1] = temp;
+                }
+            }
+        }
+
+        // Descending sort
+        let descending = [...arr7]; // copy original array
+        for (let i = 0; i < descending.length - 1; i++) {
+            for (let j = 0; j < descending.length - 1 - i; j++) {
+                if (descending[j] < descending[j + 1]) {
+                    let temp = descending[j];
+                    descending[j] = descending[j + 1];
+                    descending[j + 1] = temp;
+                }
+            }
+        }
+
+        console.log("Ascending:", ascending);   // [1, 2, 3, 4]
+        console.log("Descending:", descending); // [4, 3, 2, 1]
+    </script> -->
+
+    <!-- ============================================================================== -->
+
+    <!-- ✅ 8. Frequency of each element -->
+    <script>
+        let arr8 = [1, 2, 2, 3, 3, 3, 3, 4];
+        let freq = {};
+        for (let num of arr8) freq[num] = (freq[num] || 0) + 1;
+        console.log("Frequency:", freq);  //Frequency: {1: 1, 2: 2, 3: 4, 4: 1}
+
+    </script>
+
+    <!-- ================================================================================ -->
+
+
+    <!-- ✅ 9. Second largest number -->
+    <script>
+        let arr9 = [10, 5, 20, 20, 8];
+        let sorted = [...new Set(arr9)].sort((a, b) => b - a);
+        console.log("Second Largest:", sorted[1]);
+    </script>
+
+
+    <!-- <script>
+        let arr9 = [10, 5, 20, 20, 8];
+        let max = -Infinity;
+        let second = -Infinity;
+
+        for (let i = 0; i < arr9.length; i++) {
+            let num = arr9[i];
+
+            if (num > max) {
+                second = max;
+                max = num;
+            } else if (num > second && num !== max) {
+                second = num;
+            }
+        }
+
+        console.log("Second Largest:", second); // 10
+    </script> -->
+
+
+    <!-- =================================================================================== -->
+
+
+
+    <!-- ✅ 10. Even and Odd numbers -->
+    <script>
+        let arr10 = [1, 2, 3, 4, 5, 6];
+        console.log("Even:", arr10.filter(n => n % 2 === 0));
+        console.log("Odd:", arr10.filter(n => n % 2 !== 0));
+    </script>
+
+
+    <!-- <script>
+        let arr10 = [1, 2, 3, 4, 5, 6];
+        let even = [];
+        let odd = [];
+
+        for (let i = 0; i < arr10.length; i++) {
+            if (arr10[i] % 2 === 0) {
+                even.push(arr10[i]);
+            } else {
+                odd.push(arr10[i]);
+            }
+        }
+
+        console.log("Even:", even); // [2, 4, 6]
+        console.log("Odd:", odd);   // [1, 3, 5]
+    </script> -->
+
+
+    <!-- ========================================================================= -->
+
+    <!-- ✅ 11. Missing number in sequence -->
+    <script>
+        let arr11 = [1, 2, 4, 5];
+        let n = arr11.length + 1;
+        let expectedSum = (n * (n + 1)) / 2;
+        let actualSum = arr11.reduce((a, b) => a + b, 0);
+        console.log("Missing Number:", expectedSum - actualSum);
+    </script>
+
+    <!-- <script>
+        let arr11 = [1, 2, 4, 5];
+        let n = arr11.length + 1;
+        let expectedSum = (n * (n + 1)) / 2;
+
+        let actualSum = 0;
+        for (let i = 0; i < arr11.length; i++) {
+            actualSum += arr11[i];
+        }
+
+        console.log("Missing Number:", expectedSum - actualSum); // 3
+    </script> -->
+
+
+    <!-- ============================================================================= -->
+
+
+    <!-- ✅ 12. Rotate array right by 1 -->
+    <script>
+        let arr12 = [1, 2, 3, 4];
+        let rotateRight = [arr12[arr12.length - 1], ...arr12.slice(0, -1)];
+        console.log("Rotated:", rotateRight);
+    </script>
+
+    <!-- <script>
+        let arr12 = [1, 2, 3, 4];
+        let rotated = [];
+        let last = arr12[arr12.length - 1]; // 4
+
+        rotated.push(last); // first element in rotated array
+
+        for (let i = 0; i < arr12.length - 1; i++) {
+            rotated.push(arr12[i]);
+        }
+
+        console.log("Rotated:", rotated); // [4, 1, 2, 3]
+    </script> -->
+
+
+
+    <!-- ======================================================================== -->
+
+
+
+    <!-- ✅ 13. Flatten 2D array -->
+    <script>
+        let arr13 = [[1, 2], [3, 4], [5]];
+        console.log("Flattened:", arr13.flat());
+    </script>
+
+    <!-- <script>
+        let arr13 = [[1, 2], [3, 4], [5]];
+        let flattened = [];
+
+        for (let sub of arr13) {
+            for (let item of sub) {
+                flattened.push(item);
+            }
+        }
+
+        console.log("Flattened:", flattened); // [1, 2, 3, 4, 5]
+    </script> -->
+
+    <!-- ======================================================================= -->
+
+    <!-- ✅ 14. Merge arrays without duplicates -->
+    <script>
+        let arr14a = [1, 2, 3], arr14b = [3, 4, 5];
+        console.log("Merged:", [...new Set([...arr14a, ...arr14b])]);
+    </script>
+
+    <!-- ✅ 15. Check if array is sorted -->
+    <script>
+        let arr15 = [1, 2, 3, 4, 5];
+        let isSorted = arr15.every((v, i, a) => i === 0 || a[i - 1] <= v);
+        console.log("Is Sorted:", isSorted);
+    </script>
+
+    <!-- ✅ 16. Find pairs with given sum -->
+    <script>
+        let arr16 = [1, 2, 3, 4, 5], target = 6;
+        for (let i = 0; i < arr16.length; i++) {
+            for (let j = i + 1; j < arr16.length; j++) {
+                if (arr16[i] + arr16[j] === target) {
+                    console.log("Pair:", [arr16[i], arr16[j]]);
+                }
+            }
+        }
+    </script>
+
+    <!-- ✅ 17. Remove specific element -->
+    <script>
+        let arr17 = [1, 2, 3, 4];
+        let removed = arr17.filter(n => n !== 3);
+        console.log("After Removal:", removed);
+    </script>
+
+    <!-- ✅ 18. Chunk array into smaller arrays -->
+    <script>
+        let arr18 = [1, 2, 3, 4, 5];
+        function chunk(arr, size) {
+            let chunks = [];
+            for (let i = 0; i < arr.length; i += size) {
+                chunks.push(arr.slice(i, i + size));
+            }
+            return chunks;
+        }
+        console.log("Chunks:", chunk(arr18, 2));
+    </script>
+
+    <!-- ✅ 19. Common elements in two arrays -->
+    <script>
+        let arr19a = [1, 2, 3], arr19b = [2, 3, 4];
+        console.log("Common:", arr19a.filter(v => arr19b.includes(v)));
+    </script>
+
+    <!-- ✅ 20. Map-Filter-Reduce chaining -->
+    <script>
+        let arr20 = [1, 2, 3, 4, 5];
+        let total = arr20
+            .filter(n => n % 2 !== 0)
+            .map(n => n * 2)
+            .reduce((a, b) => a + b, 0);
+        console.log("Final Total:", total);
+    </script>
+
+    <!-- ✅ 21. Find intersection of multiple arrays -->
+    <script>
+        let arr21a = [1, 2, 3, 4];
+        let arr21b = [2, 3];
+        let arr21c = [2, 3, 5];
+        let common = arr21a.filter(x => arr21b.includes(x) && arr21c.includes(x));
+        console.log("Common in all:", common);
+    </script>
+
+    <!-- ✅ 22. Remove falsy values -->
+    <script>
+        let mixed = [0, 1, false, 2, '', 3, null, undefined];
+        let truthy = mixed.filter(Boolean);
+        console.log("Truthy Values:", truthy);
+    </script>
+
+    <!-- ✅ 23. Find duplicates -->
+    <script>
+        let arr23 = [1, 2, 2, 3, 4, 4, 5];
+        let seen = new Set();
+        let duplicates = arr23.filter(num => seen.has(num) || !seen.add(num));
+        console.log("Duplicates:", [...new Set(duplicates)]);
+    </script>
+
+    <!-- ✅ 24. Remove first n elements -->
+    <script>
+        let arr24 = [1, 2, 3, 4, 5];
+        console.log("After removing 2:", arr24.slice(2));
+    </script>
+
+    <!-- ✅ 25. Count occurrences of specific element -->
+    <script>
+        let arr25 = [1, 2, 2, 3, 2, 4];
+        let count = arr25.filter(x => x === 2).length;
+        console.log("Count of 2:", count);
+    </script>
+
+    <!-- ✅ 26. Convert array to object (key-value) -->
+    <script>
+        let arr26 = ['a', 'b', 'c'];
+        let obj26 = Object.assign({}, arr26);
+        console.log("Array to Object:", obj26);
+    </script>
+
+    <!-- ✅ 27. Find all indices of specific value -->
+    <script>
+        let arr27 = [1, 2, 3, 2, 4, 2];
+        let indices = [];
+        arr27.forEach((val, i) => { if (val === 2) indices.push(i); });
+        console.log("Indices of 2:", indices);
+    </script>
+
+    <!-- ✅ 28. Find first element greater than 3 -->
+    <script>
+        let arr28 = [1, 2, 4, 5];
+        console.log("First >3:", arr28.find(x => x > 3));
+    </script>
+
+    <!-- ✅ 29. Create range array (1 to 10) -->
+    <script>
+        let range = Array.from({ length: 10 }, (_, i) => i + 1);
+        console.log("Range 1-10:", range);
+    </script>
+
+    <!-- ✅ 30. Partition array by condition -->
+    <script>
+        let nums30 = [1, 2, 3, 4, 5, 6];
+        let partitioned = [nums30.filter(x => x % 2 === 0), nums30.filter(x => x % 2 !== 0)];
+        console.log("Partitioned [even, odd]:", partitioned);
+    </script>
+
+    <!-- ✅ 31. Insert at specific position -->
+    <script>
+        let arr31 = [1, 2, 4, 5];
+        let pos = 2, newVal = 3;
+        arr31.splice(pos, 0, newVal);
+        console.log("After insert:", arr31);
+    </script>
+
+    <!-- ✅ 32. Replace all elements with a value -->
+    <script>
+        let arr32 = new Array(5).fill("X");
+        console.log("Filled:", arr32);
+    </script>
+
+    <!-- ✅ 33. Remove last n elements -->
+    <script>
+        let arr33 = [1, 2, 3, 4, 5];
+        console.log("Without last 2:", arr33.slice(0, -2));
+    </script>
+
+    <!-- ✅ 34. Split array into even and odd -->
+    <script>
+        let arr34 = [10, 11, 12, 13, 14];
+        let evens = [], odds = [];
+        arr34.forEach(n => (n % 2 === 0 ? evens : odds).push(n));
+        console.log("Evens:", evens);
+        console.log("Odds:", odds);
+    </script>
+
+    <!-- ✅ 35. Find mode (most frequent) -->
+    <script>
+        let arr35 = [1, 2, 2, 3, 3, 3, 4];
+        let map = {};
+        arr35.forEach(x => map[x] = (map[x] || 0) + 1);
+        let mode = Object.keys(map).reduce((a, b) => map[a] > map[b] ? a : b);
+        console.log("Mode:", mode);
+    </script>
+
+    <!-- ✅ 36. Get unique elements preserving order -->
+    <script>
+        let arr36 = [1, 2, 1, 3, 2, 4];
+        let unique36 = arr36.filter((val, idx) => arr36.indexOf(val) === idx);
+        console.log("Unique (order):", unique36);
+    </script>
+
+    <!-- ✅ 37. Swap two elements -->
+    <script>
+        let arr37 = [1, 2, 3, 4];
+        [arr37[0], arr37[2]] = [arr37[2], arr37[0]];
+        console.log("Swapped:", arr37);
+    </script>
+
+    <!-- ✅ 38. Find k largest elements -->
+    <script>
+        let arr38 = [4, 1, 7, 3, 9, 2];
+        let k = 3;
+        let topK = [...arr38].sort((a, b) => b - a).slice(0, k);
+        console.log(`Top ${k} elements:`, topK);
+    </script>
+
+    <!-- ✅ 39. Sum of positive numbers -->
+    <script>
+        let arr39 = [-1, 2, -3, 4, 5];
+        let posSum = arr39.filter(x => x > 0).reduce((a, b) => a + b, 0);
+        console.log("Positive Sum:", posSum);
+    </script>
+
+    <!-- ✅ 40. Convert array of objects to a single object -->
+    <script>
+        let arr40 = [{ key: 'a', val: 1 }, { key: 'b', val: 2 }];
+        let obj40 = arr40.reduce((acc, curr) => {
+            acc[curr.key] = curr.val;
+            return acc;
+        }, {});
+        console.log("Object:", obj40);
+    </script>
+
+</body>
+
+</html>

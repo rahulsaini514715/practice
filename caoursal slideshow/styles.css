@@ -1,0 +1,36 @@
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.slides {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.slides img {
+  width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}

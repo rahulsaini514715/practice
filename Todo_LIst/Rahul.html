@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo List</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+  }
+  button {
+    padding: 10px;
+    cursor: pointer;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+<h2>Todo List</h2>
+<input type="text" id="taskInput" placeholder="Enter task...">
+<button onclick="addTask()">Add Task</button>
+<ul id="taskList">
+  <!-- Tasks will be dynamically added here -->
+</ul>
+
+<script>
+  function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+    const taskText = taskInput.value.trim();
+
+    if (taskText !== '') {
+      const li = document.createElement('li');
+      li.textContent = taskText;                  ////////////🔹 textContent क्या करता है? element.textContent का उपयोग किसी HTML element के text को set या get करने के लिए किया जाता है। ये element के सिर्फ plain text को दिखाता है — इसमें कोई HTML parsing नहीं होती।
+      
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.onclick = function() {
+        li.remove();
+      };
+      
+      li.appendChild(deleteButton);
+      taskList.appendChild(li);
+      
+      taskInput.value = '';
+    } else {
+      alert('Please enter a task!');
+    }
+  }
+</script>
+</body>
+</html>
+
+
+<!-- //-------------------------------------------------- -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo List with localStorage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 70%;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Todo List</h2>
+  <input type="text" id="taskInput" placeholder="Enter task...">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="taskList"></ul>
+
+  <script>
+    let tasks = [];
+
+    // Load tasks from localStorage on page load
+    window.onload = function() {
+      const storedTasks = localStorage.getItem('tasks');
+      if (storedTasks) {
+        tasks = JSON.parse(storedTasks);
+        tasks.forEach(task => renderTask(task));
+      }
+    };
+
+    function addTask() {
+      const taskInput = document.getElementById('taskInput');
+      const taskText = taskInput.value.trim();
+
+      if (taskText !== '') {
+        tasks.push(taskText);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        renderTask(taskText);
+        taskInput.value = '';
+      } else {
+        alert('Please enter a task!');
+      }
+    }
+
+    function renderTask(taskText) {
+      const taskList = document.getElementById('taskList');
+      const li = document.createElement('li');
+      li.textContent = taskText;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.onclick = function() {
+        taskList.removeChild(li);
+        tasks = tasks.filter(t => t !== taskText);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      };
+
+      li.appendChild(deleteButton);
+      taskList.appendChild(li);
+    }
+  </script>
+</body>
+</html> -->

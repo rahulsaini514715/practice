@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Active Navbar Link</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      background-color: #333;
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+    }
+
+    .navbar a.active {
+      background-color: #04AA6D;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#" class="nav-link active">Home</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">Services</a>
+    <a href="#" class="nav-link">Contact</a>
+  </div>
+
+  <script>
+    // Get all nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        // Remove active class from all
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        // Add active class to clicked one
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+<!-- 
+🔹 classList kya hai?
+classList ek built-in JavaScript property hai jo HTML element ke saare class names ka list (collection) deta hai — jise tum JavaScript se add, remove, toggle, or check kar sakte ho.
+
+Ye basically tumhare HTML element ke class="" attribute ko JS ke through control karta hai.
+
+
+
+🔹 Common Methods of classList:
+
+| Method                  | Use                                                           |
+| ----------------------- | ------------------------------------------------------------- |
+| `add('className')`      | Naya class add karta hai                                      |
+| `remove('className')`   | Class hata deta hai                                           |
+| `toggle('className')`   | Agar class hai to remove karta hai, nahi hai to add karta hai |
+| `contains('className')` | Check karta hai ki class hai ya nahi (`true`/`false`)         |
+
+
+
+<div id="box" class="red">Hello</div>
+
+const box = document.getElementById('box');
+
+// ➕ Add a class
+box.classList.add('big'); // <div class="red big">
+
+// ❌ Remove a class
+box.classList.remove('red'); // <div class="big">
+
+// 🔁 Toggle a class
+box.classList.toggle('active'); // Adds if not present, removes if present
+
+// ✅ Check class
+if (box.classList.contains('big')) {
+  console.log("Yes, class 'big' is present");
+}
+
+
+
+
+
+🔹 Real life use (jaise tumhare nav bar me kiya):
+
+link.classList.add('active'); // active link green ho gaya
+link.classList.remove('active'); // baaki sab normal ho gaye
+
+
+-->
