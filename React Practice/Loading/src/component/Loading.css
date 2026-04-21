@@ -1,0 +1,21 @@
+/* Pure screen center me loading gif dikhane ke liye */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;        /* pura screen height le */
+  width: 100vw;         /* pura screen width le */
+  position: fixed;      /* screen ke upar chipka rahe */
+  top: 0;
+  left: 0;
+  z-index: 9999;        /* sabse upar dikhai de */
+}
+
+/* GIF ke liye thoda size control */
+.loading-container img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+
